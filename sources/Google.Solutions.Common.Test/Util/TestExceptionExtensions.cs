@@ -24,6 +24,8 @@ using NUnit.Framework;
 using System;
 using System.Reflection;
 
+#pragma warning disable CA2201 // Do not raise reserved exception types
+
 namespace Google.Solutions.Common.Test.Util
 {
     [TestFixture]

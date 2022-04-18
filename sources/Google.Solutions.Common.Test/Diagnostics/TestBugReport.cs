@@ -23,6 +23,7 @@ using Google.Solutions.Common.Diagnostics;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -42,6 +43,7 @@ namespace Google.Solutions.Common.Test.Diagnostics
         }
 
         [Test]
+        [SuppressMessage("Usage", "CA2201:Do not raise reserved exception types")]
         public void WhenExceptionIsNotNull_ThenToStringContainsNestedExceptionDetails()
         {
             var ex = new ApplicationException("outer", new NullReferenceException("inner"));
@@ -54,6 +56,7 @@ namespace Google.Solutions.Common.Test.Diagnostics
         }
 
         [Test]
+        [SuppressMessage("Usage", "CA2201:Do not raise reserved exception types")]
         public void WhenExceptionIsLoaderException_ThenToStringContainsExceptionDetails()
         {
             var ex = new ReflectionTypeLoadException(

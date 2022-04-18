@@ -49,7 +49,7 @@ namespace Google.Solutions.IapDesktop.Application.Test.Services.Authorization
                     CancellationToken.None)
                 .ConfigureAwait(false);
 
-            await authorization.RevokeAsync();
+            await authorization.RevokeAsync().ConfigureAwait(false);
 
             adapter.Verify(a => a.DeleteStoredRefreshToken(), Times.Once);
         }
@@ -170,7 +170,9 @@ namespace Google.Solutions.IapDesktop.Application.Test.Services.Authorization
                     Email = "bob@example.com"
                 });
 
-            await authorization.ReauthorizeAsync(CancellationToken.None);
+            await authorization
+                .ReauthorizeAsync(CancellationToken.None)
+                .ConfigureAwait(false);
 
             Assert.IsNotNull(authorization);
             Assert.AreEqual("bob@example.com", authorization.Email);

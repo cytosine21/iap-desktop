@@ -22,6 +22,7 @@
 using Google.Solutions.Common.Util;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.NetworkInformation;
 
@@ -73,7 +74,7 @@ namespace Google.Solutions.IapTunneling.Test.Net
                 }
             }
 
-            throw new SystemException("Failed to find available TCP port");
+            throw new IOException("Failed to find available TCP port");
         }
     }
 }

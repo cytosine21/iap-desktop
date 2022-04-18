@@ -28,6 +28,7 @@ using Moq;
 using NUnit.Framework;
 using System;
 using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -180,6 +181,7 @@ namespace Google.Solutions.IapDesktop.Application.Test.Services.Integration
         }
 
         [Test]
+        [SuppressMessage("Usage", "CA2201:Do not raise reserved exception types")]
         public void WhenReauthFailed_ThenExceptionIsPropagated()
         {
             this.jobHost.Setup(h => h.ConfirmReauthorization()).Returns(true);
@@ -200,10 +202,6 @@ namespace Google.Solutions.IapDesktop.Application.Test.Services.Integration
                     }).Wait();
             });
         }
-
-
-
-
 
         [Test]
         public async Task WhenReauthRequired_ThenReauthConfirmationIsPrompted_WithAggregateException()
@@ -292,6 +290,7 @@ namespace Google.Solutions.IapDesktop.Application.Test.Services.Integration
         }
 
         [Test]
+        [SuppressMessage("Usage", "CA2201:Do not raise reserved exception types")]
         public void WhenReauthFailed_ThenExceptionIsPropagated_WithAggregateException()
         {
             this.jobHost.Setup(h => h.ConfirmReauthorization()).Returns(true);

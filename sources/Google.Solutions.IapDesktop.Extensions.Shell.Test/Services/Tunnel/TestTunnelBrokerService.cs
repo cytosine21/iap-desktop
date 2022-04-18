@@ -27,6 +27,7 @@ using Google.Solutions.IapTunneling.Iap;
 using Moq;
 using NUnit.Framework;
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -143,6 +144,7 @@ namespace Google.Solutions.IapDesktop.Extensions.Shell.Test.Services.Tunnel
         }
 
         [Test]
+        [SuppressMessage("Usage", "CA2201:Do not raise reserved exception types")]
         public void WhenConnectFails_ThenOpenTunnelsDoesNotIncludeTunnel()
         {
             var mockTunnelService = new Mock<ITunnelService>();
@@ -171,6 +173,7 @@ namespace Google.Solutions.IapDesktop.Extensions.Shell.Test.Services.Tunnel
         }
 
         [Test]
+        [SuppressMessage("Usage", "CA2201:Do not raise reserved exception types")]
         public void WhenProbeFails_ThenOpenTunnelsDoesNotIncludeTunnel()
         {
             var mockTunnelService = new Mock<ITunnelService>();
